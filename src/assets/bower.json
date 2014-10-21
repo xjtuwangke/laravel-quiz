@@ -1,0 +1,24 @@
+{
+    "name": "packages",
+    "version": "0.0.0",
+    "authors": [
+        "wangke <wangke85@gmail.com>"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "1.11.*"
+        , "bootstrap": "3.*"
+        , "jquery-ui": "*"
+        , "respond": "*"
+        , "modernizr": "*"
+        , "normalize.css": "*"
+        , "html5-boilerplate": "*"
+    }
+}

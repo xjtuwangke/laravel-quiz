@@ -1,0 +1,70 @@
+{
+    "ui_js" : {
+        "src" :  [
+            "bower_components/bootstrap/dist/js/bootstrap.js"
+            , "bower_components/jquery-ui/jquery-ui.js"
+        ]
+        , "dest" : "dist/js/ui.js"
+        , "nonull" : true
+        , "options" : {
+            "separator" : ";"
+        }
+    },
+    "ui_css" : {
+        "src" :  [
+            "bower_components/bootstrap/dist/css/bootstrap.css"
+            , "bower_components/bootstrap/dist/css/bootstrap-theme.css"
+            , "bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css"
+            , "bower_components/jquery-ui/themes/ui-lightness/theme.css"
+        ]
+        , "dest" : "../../public/css/ui.css"
+        , "nonull" : true
+    },
+    "custom_js" : {
+      "src" :  [
+        "src/js/*.js"
+      ]
+      , "dest" : "../../public/js/custom.js"
+      , "nonull" : true
+      , "options" : {
+        "separator" : ";"
+      }
+    },
+    "custom_css" : {
+      "src" :  [
+        "src/css/*.css"
+      ]
+      , "dest" : "../../public/css/custom.css"
+      , "nonull" : true
+    },
+    "respond_js" : {
+        "src" :  [
+            "bower_components/respond/dest/respond.src.js"
+        ]
+        , "dest" : "../../public/js/respond.js"
+        , "nonull" : true
+        , "options" : {
+            "separator" : ";"
+        }
+    },
+    "basic_js" : {
+        "src" :  [
+            "bower_components/modernizr/modernizr.js"
+            , "bower_components/respond/dest/respond.src.js"
+            , "bower_components/jquery/dist/jquery.js"
+        ]
+        , "dest" : "../../public/js/basic.js"
+        , "nonull" : true
+        , "options" : {
+            "separator" : ";"
+        }
+    },
+    "basic_css" : {
+        "src" :  [
+            "bower_components/normalize.css/normalize.css"
+            , "bower_components/html5-boilerplate/css/main.css"
+        ]
+        , "dest" : "../../public/css/basic.css"
+        , "nonull" : true
+    }
+}

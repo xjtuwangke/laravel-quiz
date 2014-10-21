@@ -1,0 +1,18 @@
+{
+    "options" : {
+        "banner" : "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd hh:mm:ss') %> */\n",
+        "sourceMap" : true,
+        "compress": {
+            "drop_console": false,
+            "dead_code": false
+        }
+    },
+    "minify" : {
+        "expand": true,
+        "cwd" : "../../public/js/",
+        "src" : ["*.js", "!*.min.js"],
+        "dest": "../../public/js/",
+        "ext": ".min.js",
+        "nonull" : true
+    }
+}

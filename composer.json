@@ -15,6 +15,7 @@
     "autoload": {
         "classmap": [
             "src/migrations"
+            ,"src/controllers"
         ],
         "psr-0": {
             "Xjtuwangke\\LaravelQuiz\\": "src/"

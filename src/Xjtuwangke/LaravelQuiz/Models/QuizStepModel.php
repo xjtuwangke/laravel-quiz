@@ -16,7 +16,9 @@ class QuizStepModel extends \BasicModel{
         $table = parent::_schema( $table );
         $table->unsignedInteger( 'quiz_id' );
         $table->unsignedInteger( 'step' );
+        $table->index( 'select' );
         $table->longText( 'content' );
+        $table->longText( 'next' );
         return $table;
     }
 }
