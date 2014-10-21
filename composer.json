@@ -1,0 +1,24 @@
+{
+    "name": "xjtuwangke/laravel-quiz",
+    "description": "",
+    "authors": [
+        {
+            "name": "xjtuwangke",
+            "email": "wangke85@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+        , "xjtuwangke/laravel-models": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Xjtuwangke\\LaravelQuiz\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
