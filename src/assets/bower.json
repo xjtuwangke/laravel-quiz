@@ -20,5 +20,6 @@
         , "modernizr": "*"
         , "normalize.css": "*"
         , "html5-boilerplate": "*"
+        , "chartjs": "*"
     }
 }

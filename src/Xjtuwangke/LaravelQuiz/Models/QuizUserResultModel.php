@@ -18,6 +18,7 @@ class QuizUserResultModel extends \BasicModel{
         $table = parent::_schema( $table );
         $table->unsignedInteger( 'quiz_id' );
         $table->unsignedInteger( 'user_id' );
+        $table->unsignedInteger( 'current_step' )->default( 0 );
         $table->text( 'token' )->nullable();
         $table->enum( 'status' , [ '未开始' , '进行中' , '完成' , '中止' ] );
         $table->longText( 'result_text' )->nullable();
@@ -38,6 +39,34 @@ class QuizUserResultModel extends \BasicModel{
             'result_text' => '' ,
             'status' => '未开始' ,
         ));
+    }
+
+    public function next( $step ){
+        $this->current_step = $step;
+        $next = $this->quiz->getStep( $step )->nextStep( $this );
+        if( QuizStepModel::QuizFinished === $next ){
+            $this->status = '完成';
+        }
+        elseif( QuizStepModel::QuizAborted === $next ){
+            $this->status = '中止';
+        }
+        else{
+            $this->status = '进行中';
+        }
+        $this->save();
+        return $next;
+    }
+
+    public function saveStepResult( $step , $options ){
+        return QuizStepRecord::createFromResult( $this , $step , $options );
+    }
+
+    public function steps(){
+        return $this->hasMany( 'Xjtuwangke\LaravelQuiz\Models\QuizStepRecord' , 'quiz_user_results_id' , 'id' );
+    }
+
+    public function getStep( $step ){
+        return $this->steps()->where( 'step' , $step )->first();
     }
 
 }

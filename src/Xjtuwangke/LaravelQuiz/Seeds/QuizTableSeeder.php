@@ -32,7 +32,7 @@ class QuizTableSeeder extends BasicTableSeeder{
                 'text' => $this->faker->sentence ,
                 'type' => QuizStepModel::Type_SingleSelect ,
             ));
-            for( $j = 0 ; $j < 4 ; $j++ ){
+            foreach( [ 'A' , 'B' , 'C' , 'D' ] as $j ){
                 $step->addOption( $j , $this->faker->sentence );
             }
         }
@@ -47,10 +47,41 @@ class QuizTableSeeder extends BasicTableSeeder{
                 'text' => $this->faker->sentence ,
                 'type' => QuizStepModel::Type_SingleSelect ,
             ));
-            for( $j = 0 ; $j < 4 ; $j++ ){
+            foreach( [ 'A' , 'B' , 'C' , 'D' ] as $j ){
                 $step->addOption( $j , $this->faker->sentence );
             }
         }
+
+        $quiz = QuizModel::create( array(
+            'title' => '成都MBA市场调研' ,
+            'desc'  => $this->fake_html5() ,
+            'type' => '调研' ,
+        ));
+        for( $i = 0 ; $i < 5 ; $i++ ){
+            $step = $quiz->addStep( array(
+                'text' => $this->faker->sentence ,
+                'type' => QuizStepModel::Type_SingleSelect ,
+            ));
+            foreach( [ 'A' , 'B' , 'C' , 'D' ] as $j ){
+                $step->addOption( $j , $this->faker->sentence );
+            }
+        }
+
+        $quiz = QuizModel::create( array(
+            'title' => 'xxxx市场调研' ,
+            'desc'  => $this->fake_html5() ,
+            'type' => '调研' ,
+        ));
+        for( $i = 0 ; $i < 5 ; $i++ ){
+            $step = $quiz->addStep( array(
+                'text' => $this->faker->sentence ,
+                'type' => QuizStepModel::Type_SingleSelect ,
+            ));
+            foreach( [ 'A' , 'B' , 'C' , 'D' ] as $j ){
+                $step->addOption( $j , $this->faker->sentence );
+            }
+        }
+
         return null;
     }
 }

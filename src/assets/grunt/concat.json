@@ -3,8 +3,9 @@
         "src" :  [
             "bower_components/bootstrap/dist/js/bootstrap.js"
             , "bower_components/jquery-ui/jquery-ui.js"
+            , "bower_components/chartjs/Chart.js"
         ]
-        , "dest" : "dist/js/ui.js"
+        , "dest" : "../../public/js/ui.js"
         , "nonull" : true
         , "options" : {
             "separator" : ";"

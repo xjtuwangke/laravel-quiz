@@ -16,6 +16,10 @@ class QuizStepModel extends \BasicModel{
 
     const Type_MultiSelect = 'multi_select';
 
+    const QuizFinished = 0;
+
+    const QuizAborted = -1;
+
     public static function _schema( \Illuminate\Database\Schema\Blueprint $table ){
         $table = parent::_schema( $table );
         $table->unsignedInteger( 'quiz_id' );
@@ -48,6 +52,19 @@ class QuizStepModel extends \BasicModel{
         $this->options = $options;
         $this->save();
         return $this;
+    }
+
+    public function nextStep( QuizUserResultModel $userResult ){
+        if( ! $this->next ){
+            $next = static::where( 'quiz_id' , $this->quiz_id )->where( 'step' , '>' , $this->step )->orderBy( 'step' , 'asc' )->first();
+            if( ! $next ){
+                return static::QuizFinished;
+            }
+            return $next;
+        }
+        else{
+            //...
+        }
     }
 
 }

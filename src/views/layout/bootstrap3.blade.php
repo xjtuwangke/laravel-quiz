@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ \URL::asset( "packages/xjtuwangke/laravel-quiz/css/basic.min.css" ); }}">
         <link rel="stylesheet" href="{{ \URL::asset( "packages/xjtuwangke/laravel-quiz/css/ui.min.css" ); }}">
         <script src="{{ \URL::asset( "packages/xjtuwangke/laravel-quiz/js/basic.min.js" ); }}"></script>
+        <script src="{{ \URL::asset( "packages/xjtuwangke/laravel-quiz/js/ui.min.js" ); }}"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -30,5 +31,4 @@
         </script>
         -->
     </body>
-    <script src="{{ \URL::asset( "packages/xjtuwangke/laravel-quiz/js/ui.min.js" ); }}"></script>
 </html>

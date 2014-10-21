@@ -4,9 +4,9 @@ class CreateQuizTables extends \Xjtuwangke\LaravelModels\Migration\BasicMigratio
 
 	protected $tables = array(
 		'Xjtuwangke\LaravelQuiz\Models\QuizModel' ,
-		'Xjtuwangke\LaravelQuiz\Models\QuizResultModel' ,
 		'Xjtuwangke\LaravelQuiz\Models\QuizStepModel' ,
 		'Xjtuwangke\LaravelQuiz\Models\QuizUserResultModel' ,
+		'Xjtuwangke\LaravelQuiz\Models\QuizStepRecord' ,
 	);
 
 }
