@@ -2,21 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: kevin
- * Date: 14/10/18
- * Time: 02:54
+ * Date: 14/10/21
+ * Time: 20:02
  */
 
 namespace Xjtuwangke\LaravelQuiz\Models;
 
-class QuizResultModel extends \BasicModel{
 
-    protected $table = 'quiz_results';
+class QuizStepRecord extends \BasicModel{
+
+    protected $table = 'quiz_step_records';
 
     public static function _schema( \Illuminate\Database\Schema\Blueprint $table ){
         $table = parent::_schema( $table );
+        $table->unsignedInteger( 'quiz_user_results_id' );
         $table->unsignedInteger( 'quiz_id' );
-        $table->integer( 'order' );
-        $table->longText( 'result' )->nullable();
+        $table->longText( 'record' )->nullable();
         return $table;
     }
+
 }

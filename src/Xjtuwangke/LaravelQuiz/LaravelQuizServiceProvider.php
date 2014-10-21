@@ -1,6 +1,7 @@
 <?php namespace Xjtuwangke\LaravelQuiz;
 
 use Illuminate\Support\ServiceProvider;
+use Xjtuwangke\LaravelQuiz\Controllers\QuizController;
 
 class LaravelQuizServiceProvider extends ServiceProvider {
 
@@ -19,6 +20,8 @@ class LaravelQuizServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('xjtuwangke/laravel-quiz');
+
+		QuizController::registerRoutes();
 	}
 
 	/**

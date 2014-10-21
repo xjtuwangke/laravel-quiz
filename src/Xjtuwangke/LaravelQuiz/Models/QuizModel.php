@@ -14,17 +14,30 @@ class QuizModel extends \BasicModel{
 
     public static function _schema( \Illuminate\Database\Schema\Blueprint $table ){
         $table = parent::_schema( $table );
-        $table->unsignedInteger( 'club_article_id' );
-        $table->text( 'background' );
+        $table->longText( 'desc' )->nullable();
+        $table->text( 'title' )->nullable();
+        $table->enum( 'type' , [ '调研' , '测试' ] )->default( '调研' );
         return $table;
     }
 
     public function steps(){
-        return $this->hasMany( 'QuizStepModel' , 'quiz_id' , 'id' )->orderBy( 'step' , 'asc' );
+        return $this->hasMany( 'Xjtuwangke\LaravelQuiz\Models\QuizStepModel' , 'quiz_id' , 'id' )->orderBy( 'step' , 'asc' );
     }
 
     public function results(){
-        return $this->hasMany( 'QuizResultModel' , 'quiz_id' , 'id' )->orderBy( 'order' , 'asc' );
+        return $this->hasMany( 'Xjtuwangke\LaravelQuiz\Models\QuizResultModel' , 'quiz_id' , 'id' )->orderBy( 'order' , 'asc' );
+    }
+
+    public function getStep( $step ){
+        return $this->steps()->where( 'step' , $step )->first();
+    }
+
+    public function addStep( array $attributes ){
+        $count = $this->steps()->count();
+        $count++;
+        $attributes[ 'quiz_id' ] = $this->getKey();
+        $attributes[ 'step' ] = $count;
+        return QuizStepModel::create( $attributes );
     }
 
 }
