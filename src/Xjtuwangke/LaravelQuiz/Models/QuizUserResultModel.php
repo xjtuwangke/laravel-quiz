@@ -35,7 +35,7 @@ class QuizUserResultModel extends \BasicModel{
         return static::create( array(
             'user_id' => $user->getKey() ,
             'quiz_id' => $quiz->getKey() ,
-            'token'   => KRandom::getRandStr() ,
+            'token'   => time() . KRandom::getRandStr( 8 ) ,
             'result_text' => '' ,
             'status' => '未开始' ,
         ));

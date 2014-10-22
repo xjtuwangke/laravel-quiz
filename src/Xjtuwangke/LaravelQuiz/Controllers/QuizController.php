@@ -35,6 +35,23 @@ class QuizController extends \Controller{
         Route::get( 'quiz/question/u/{id}/t/{token}/s/{step}' , [ 'as' => 'quiz.question' , 'uses' => "{$class}@question"] );
         Route::post( 'quiz/next/u/{id}/t/{token}' , [ 'before'=>[ 'csrf' ] , 'as' => 'quiz.next' , 'uses' => "{$class}@next"] );
         Route::get( 'quiz/finished/u/{id}/t/{token}' , [ 'as' => 'quiz.finished' , 'uses' => "{$class}@finished"] );
+        Route::get( 'quiz/result/u/{user_id}/q/{quiz_id}' , [ 'as' => 'quiz.result' , 'uses' => "{$class}@result"] );
+    }
+
+    public static function quiz_index_url( QuizModel $quiz ){
+        return \URL::action( 'quiz.index' , [ $quiz->id ] );
+    }
+
+    public static function quiz_start_and_finish_url_array( QuizModel $quiz , \Eloquent $user ){
+        $token = QuizController::assignTokenForQuizUser( $user , $quiz );
+        return array(
+            \URL::action( 'quiz.question' , [ $user->id , $token , 1 ] ) ,
+            \URL::action( 'quiz.finished' , [ $user->id , $token ] ) ,
+        );
+    }
+
+    public static function quiz_result_url( QuizModel $quiz , \Eloquent $user ){
+        return \URL::action( 'quiz.result' , [ $user->id , $quiz->id ] );
     }
 
     public function index( $id ){
@@ -92,6 +109,24 @@ class QuizController extends \Controller{
             }
             else{
                 return \Redirect::action( 'quiz.question' , [ $user_id , $token , $next->step ] );
+            }
+        }
+    }
+
+    public function result( $user_id , $quiz_id ){
+        $result = QuizUserResultModel::where( 'user_id' , $user_id )->where( 'quiz_id' , $quiz_id )->orderBy( 'updated_at' , 'desc' )->first();
+        if( ! $result || ! ( $quiz = $result->quiz ) ){
+            $this->layout->content = View::make('laravel-quiz::errors.missing')->with( 'text' , '测试未找到或是您还没有完成测试' );
+            return;
+        }
+        else {
+            $this->result = $result;
+            $this->quiz = $quiz;
+            if( $quiz->type == '调研' ){
+                $this->layout->content = View::make( 'laravel-quiz::contents.result_survey' )->with( 'quiz' , $this->quiz )->with( 'result' , $this->result );
+            }
+            else{
+                $this->layout->content = View::make( 'laravel-quiz::contents.result_quiz' )->with( 'quiz' , $this->quiz )->with( 'result' , $this->result );
             }
         }
     }
