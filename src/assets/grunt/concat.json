@@ -1,72 +1,26 @@
 {
-    "ui_js" : {
+    "js" : {
         "src" :  [
-            "bower_components/bootstrap/dist/js/bootstrap.js"
-            , "bower_components/jquery-ui/jquery-ui.js"
+            "bower_components/html5-boilerplate/js/plugins.js"
+            , "bower_components/bootstrap/dist/js/bootstrap.js"
             , "bower_components/chartjs/Chart.js"
+            , "src/js/*.js"
         ]
-        , "dest" : "../../public/js/ui.js"
-        , "nonull" : true
-        , "options" : {
+    , "dest" : "../../public/js/all.js"
+    , "nonull" : true
+    , "options" : {
             "separator" : ";"
         }
     },
-    "ui_css" : {
-        "src" :  [
-            "bower_components/bootstrap/dist/css/bootstrap.css"
-            , "bower_components/bootstrap/dist/css/bootstrap-theme.css"
-            , "bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css"
-            , "bower_components/jquery-ui/themes/ui-lightness/theme.css"
-        ]
-        , "dest" : "../../public/css/ui.css"
-        , "nonull" : true
-    },
-    "custom_js" : {
-      "src" :  [
-        "src/js/*.js"
-      ]
-      , "dest" : "../../public/js/custom.js"
-      , "nonull" : true
-      , "options" : {
-        "separator" : ";"
-      }
-    },
-    "custom_css" : {
-      "src" :  [
-        "src/css/*.css"
-      ]
-      , "dest" : "../../public/css/custom.css"
-      , "nonull" : true
-    },
-    "respond_js" : {
-        "src" :  [
-            "bower_components/respond/dest/respond.src.js"
-        ]
-        , "dest" : "../../public/js/respond.js"
-        , "nonull" : true
-        , "options" : {
-            "separator" : ";"
-        }
-    },
-    "basic_js" : {
-        "src" :  [
-            "bower_components/modernizr/modernizr.js"
-            , "bower_components/respond/dest/respond.src.js"
-            , "bower_components/jquery/dist/jquery.js"
-            , "bower_components/html5-boilerplate/js/plugins.js"
-        ]
-        , "dest" : "../../public/js/basic.js"
-        , "nonull" : true
-        , "options" : {
-            "separator" : ";"
-        }
-    },
-    "basic_css" : {
+    "css" : {
         "src" :  [
             "bower_components/normalize.css/normalize.css"
             , "bower_components/html5-boilerplate/css/main.css"
+            , "bower_components/bootstrap/dist/css/bootstrap.css"
+            , "bower_components/bootstrap/dist/css/bootstrap-theme.css"
+            , "src/css/*.css"
         ]
-        , "dest" : "../../public/css/basic.css"
-        , "nonull" : true
+    , "dest" : "../../public/css/all.css"
+    , "nonull" : true
     }
 }

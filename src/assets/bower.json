@@ -13,12 +13,8 @@
         "tests"
     ],
     "dependencies": {
-        "jquery": "1.11.*"
+        "normalize.css": "*"
         , "bootstrap": "3.*"
-        , "jquery-ui": "*"
-        , "respond": "*"
-        , "modernizr": "*"
-        , "normalize.css": "*"
         , "html5-boilerplate": "*"
         , "chartjs": "*"
     }
